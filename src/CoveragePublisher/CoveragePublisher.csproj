@@ -6,6 +6,9 @@
     <RootNamespace>Microsoft.Azure.Pipelines.CoveragePublisher</RootNamespace>
     <AssemblyName>Microsoft.Azure.Pipelines.CoveragePublisher</AssemblyName>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+
+    <RootAllApplicationAssemblies>false</RootAllApplicationAssemblies>
+    <IlcOptimizationPreference>Size</IlcOptimizationPreference>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,7 +24,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="Publishers\DefaultPublisher\Resources.Designer.cs">
+    <Compile Update="Publishers\AzurePipelines\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -38,7 +41,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Publishers\DefaultPublisher\Resources.resx">
+    <EmbeddedResource Update="Publishers\AzurePipelines\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
@@ -48,4 +51,6 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <Import Project="$(MSBuildSDKsPath)\Microsoft.NET.Sdk\Sdk\Sdk.targets" />
+  <Import Project="$(IlcPath)\build\Microsoft.NETCore.Native.targets" />
 </Project>
