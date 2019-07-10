@@ -10,8 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.5.0" />
-    <PackageReference Include="Microsoft.TeamFoundationServer.Client" Version="16.153.0-preview" />
-    <PackageReference Include="Microsoft.TeamFoundation.PublishTestResults" Version="16.153.0-preview" />
+    <PackageReference Include="Microsoft.Packaging.Tools.Trimming" Version="1.1.0-preview1-25818-01" />
     <PackageReference Include="ReportGenerator.Core" Version="4.2.2" />
   </ItemGroup>
 
@@ -46,6 +45,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Publishers\" />
   </ItemGroup>
 
 </Project>

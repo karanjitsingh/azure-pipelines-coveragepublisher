@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.Threading;
 using Microsoft.Azure.Pipelines.CoveragePublisher.Model;
 using Microsoft.Azure.Pipelines.CoveragePublisher.Parsers;
-using Microsoft.Azure.Pipelines.CoveragePublisher.Publishers.DefaultPublisher;
+//using Microsoft.Azure.Pipelines.CoveragePublisher.Publishers.DefaultPublisher;
 
 namespace Microsoft.Azure.Pipelines.CoveragePublisher
 {
@@ -35,14 +35,14 @@ namespace Microsoft.Azure.Pipelines.CoveragePublisher
         private static void ProcessCoverage(PublisherConfiguration config, CancellationToken cancellationToken)
         {
             // Currently the publisher only works for azure pipelines, so we simply instansiate for Azure Pipelines
-            AzurePipelinesPublisher publisher = null;
+            //AzurePipelinesPublisher publisher = null;
             IExecutionContext context = null;
 
             try
             {
-                publisher = new AzurePipelinesPublisher(/*enableTelemetry*/ !config.DisableTelemetry);
-                context = publisher.ExecutionContext;
-                TraceLogger.Initialize(context.Logger);
+                //publisher = new AzurePipelinesPublisher(/*enableTelemetry*/ !config.DisableTelemetry);
+                //context = publisher.ExecutionContext;
+                //TraceLogger.Initialize(context.Logger);
             }
             catch (Exception ex)
             {
@@ -51,20 +51,20 @@ namespace Microsoft.Azure.Pipelines.CoveragePublisher
             }
 
 
-            var processor = new CoverageProcessor(publisher, context.TelemetryDataCollector);
+            //var processor = new CoverageProcessor(publisher, context.TelemetryDataCollector);
 
             // By default wait for 2 minutes for coverage to publish
-            var publishTimedout = processor.ParseAndPublishCoverage(config, cancellationToken, new Parser(config, context.TelemetryDataCollector))
-                                           .Wait(config.TimeoutInSeconds * 1000, cancellationToken);
+            //var publishTimedout = processor.ParseAndPublishCoverage(config, cancellationToken, new Parser(config, context.TelemetryDataCollector))
+                                           //.Wait(config.TimeoutInSeconds * 1000, cancellationToken);
 
-            if(publishTimedout)
-            {
-                _cancellationTokenSource.Cancel();
-            }
-            else
-            {
-                publishSuccess = true;
-            }
+            //if(publishTimedout)
+            //{
+            //    _cancellationTokenSource.Cancel();
+            //}
+            //else
+            //{
+            //    publishSuccess = true;
+            //}
         }
         
         private static void DebugBreakIfEnvSet()

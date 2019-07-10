@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-using Microsoft.TeamFoundation.TestManagement.WebApi;
+//using Microsoft.TeamFoundation.TestManagement.WebApi;
 using System.Collections.Generic;
 
 namespace Microsoft.Azure.Pipelines.CoveragePublisher.Model
@@ -13,11 +13,11 @@ namespace Microsoft.Azure.Pipelines.CoveragePublisher.Model
     {
         public CoverageSummary(string buildFlavor, string buildPlatform)
         {
-            CodeCoverageData = new CodeCoverageData();
+            //CodeCoverageData = new CodeCoverageData();
 
-            CodeCoverageData.BuildFlavor = buildFlavor;
-            CodeCoverageData.BuildPlatform = buildPlatform;
-            CodeCoverageData.CoverageStats = new List<CodeCoverageStatistics>();
+            //CodeCoverageData.BuildFlavor = buildFlavor;
+            //CodeCoverageData.BuildPlatform = buildPlatform;
+            //CodeCoverageData.CoverageStats = new List<CodeCoverageStatistics>();
         }
 
         public CoverageSummary(): this(string.Empty, string.Empty) { }
@@ -25,7 +25,7 @@ namespace Microsoft.Azure.Pipelines.CoveragePublisher.Model
         /// <summary>
         /// Code coverage summary data
         /// </summary>
-        public CodeCoverageData CodeCoverageData { get; private set; }
+        //public CodeCoverageData CodeCoverageData { get; private set; }
 
         /// <summary>
         /// Add coverage statistics for a run to summary.
@@ -36,14 +36,14 @@ namespace Microsoft.Azure.Pipelines.CoveragePublisher.Model
         /// <param name="priority">Priority order for the statistics.</param>
         public void AddCoverageStatistics(string label, int total, int covered, Priority priority)
         {
-            var stats = new CodeCoverageStatistics();
+            //var stats = new CodeCoverageStatistics();
 
-            stats.Covered = covered;
-            stats.Total = total;
-            stats.Position = (int)priority;
-            stats.Label = label;
+            //stats.Covered = covered;
+            //stats.Total = total;
+            //stats.Position = (int)priority;
+            //stats.Label = label;
 
-            this.CodeCoverageData.CoverageStats.Add(stats);
+            //this.CodeCoverageData.CoverageStats.Add(stats);
         }
 
         /// <summary>

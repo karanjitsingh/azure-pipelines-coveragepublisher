@@ -2,7 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using System.Collections.Generic;
-using Microsoft.TeamFoundation.TestManagement.WebApi;
+//using Microsoft.TeamFoundation.TestManagement.WebApi;
 
 namespace Microsoft.Azure.Pipelines.CoveragePublisher.Model
 {
@@ -19,7 +19,7 @@ namespace Microsoft.Azure.Pipelines.CoveragePublisher.Model
         /// <summary>
         /// Map of coverage lines to their covered status.
         /// </summary>
-        public Dictionary<uint, CoverageStatus> LineCoverageStatus;
+        public Dictionary<uint, int> LineCoverageStatus;
     }
 
 }

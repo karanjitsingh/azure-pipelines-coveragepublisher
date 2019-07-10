@@ -2,7 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using Microsoft.Azure.Pipelines.CoveragePublisher.Model;
-using Microsoft.TeamFoundation.TestManagement.WebApi;
+//using Microsoft.TeamFoundation.TestManagement.WebApi;
 using Palmmedia.ReportGenerator.Core;
 using Palmmedia.ReportGenerator.Core.CodeAnalysis;
 using Palmmedia.ReportGenerator.Core.Parser;
@@ -50,14 +50,14 @@ namespace Microsoft.Azure.Pipelines.CoveragePublisher.Parsers
                 {
                     foreach (var file in @class.Files)
                     {
-                        FileCoverageInfo resultFileCoverageInfo = new FileCoverageInfo { FilePath = file.Path, LineCoverageStatus = new Dictionary<uint, CoverageStatus>() };
+                        FileCoverageInfo resultFileCoverageInfo = new FileCoverageInfo { FilePath = file.Path, LineCoverageStatus = new Dictionary<uint, int>() };
                         int lineNumber = 0;
 
                         foreach (var line in file.LineCoverage)
                         {
                             if (line != -1 && lineNumber != 0)
                             {
-                                resultFileCoverageInfo.LineCoverageStatus.Add((uint)lineNumber, line == 0 ? CoverageStatus.NotCovered : CoverageStatus.Covered);
+                                resultFileCoverageInfo.LineCoverageStatus.Add((uint)lineNumber, line == 0 ? 1 : 0);
                             }
                             ++lineNumber;
                         }
